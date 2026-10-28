@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nicholas House | Distant Suns, Book One of Continuum</title>
+<meta name="description" content="Nicholas House writes science fiction and paranormal thrillers in Oxfordshire. Distant Suns, The Median Chronicles, Long Hill and signed copies at his stalls.">
+<meta property="og:title" content="A homepage for Nicholas House, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Nicholas House and Distant Suns, made by Sparsh Saini. Not his official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/nicholashouse/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070403'/><circle cx='11' cy='12' r='5' fill='%23f2d2c2'/><path d='M4 32a14 9 0 0 1 24 0z' fill='%23c98a3a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600&family=Saira:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/plate.jpg">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Lifted from the Distant Suns cover: deep space black, the copper of DISTANT, the pale pink of SUNS,
+   the planet's amber, the suns' cream. Teko is the cover's squared condensed lettering; Saira reads beside it.
+   The Median grey and the Long Hill dusk come from those covers. */
+:root {
+  --void: #070403;
+  --void-2: #120a07;
+  --copper: #c4755a;
+  --pale: #f0cfc1;
+  --amber: #c98a3a;
+  --cream: #fbf1df;
+  --ink: #e9ddd5;
+  --soft: #a8968c;
+  --fog: #2b2d2f;
+  --fog-2: #3d4043;
+  --fog-ink: #e6e8e8;
+  --dusk: #e98a7c;
+  --sea: #2f4f7c;
+  --display: "Teko", "Arial Narrow", sans-serif;
+  --text: "Saira", system-ui, sans-serif;
+  --gut: clamp(1rem, 5vw, 4.5rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--text); font-size: 1.05rem; line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--pale); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: .92; margin: 0; }
+
+.strip { position: relative; z-index: 30; background: var(--cream); color: var(--void); font-size: .9rem; text-align: center; padding: .45rem var(--gut) .45rem 64px; }
+
+/* ---------- the NH mark (his own monogram) opens the three worlds ---------- */
+.mark { position: fixed; z-index: 40; bottom: 14px; right: 12px; width: 46px; height: 46px; border: 1px solid rgba(240, 207, 193, .55); background: rgba(7, 4, 3, .72); color: var(--cream); font-family: var(--display); font-size: 1.85rem; line-height: 1; padding-top: 6px; cursor: pointer; letter-spacing: -.02em; }
+@media (min-width: 900px) { .mark { bottom: auto; right: auto; top: 2.6rem; left: 12px; } .mark.low { top: 12px; } }
+.worlds { position: fixed; z-index: 50; inset: 0; background: rgba(7, 4, 3, .94); display: none; padding: 5.5rem var(--gut) 2rem; }
+.worlds.open { display: block; }
+.worlds ol { list-style: none; margin: 0; padding: 0; max-width: 34rem; }
+.worlds a { display: grid; grid-template-columns: 11rem 1fr; align-items: baseline; padding: .7rem 0; border-bottom: 1px solid rgba(240, 207, 193, .18); text-decoration: none; }
+.worlds a b { font-family: var(--display); font-weight: 400; font-size: 2.6rem; line-height: 1; color: var(--pale); }
+.worlds a span { color: var(--soft); font-size: .95rem; }
+.worlds .x { position: absolute; bottom: 14px; right: 12px; width: 46px; height: 46px; border: 1px solid var(--pale); background: none; color: var(--cream); font-family: var(--display); font-size: 1.5rem; cursor: pointer; }
+
+/* ---------- the light-drive act ---------- */
+.hero { position: relative; height: 470vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--void); }
+.art { position: absolute; container-type: size; aspect-ratio: 1187 / 1812; width: calc((100svh - 200px) * .655); max-width: 118vw; left: 50%; top: 0; transform: translateX(-50%); }
+.art .v { position: absolute; inset: 0; overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); mask: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); }
+.pl { position: absolute; will-change: transform, opacity; }
+.plate, .streaks { inset: -2% 0 0 0; width: 100%; height: 102%; }
+.plate img, .streaks img { width: 100%; height: 100%; }
+.streaks { opacity: 0; mix-blend-mode: screen; }
+.planet { left: 0; top: 65.67%; width: 100%; }
+.ship, .shiplit { left: 26.12%; top: 68.16%; width: 56.45%; transform-origin: 50% 40%; }
+.sun { transform-origin: 50% 50%; }
+.s1 { left: 2.06%; top: 19.95%; width: 14.32%; }
+.s2 { left: 35.26%; top: 27.23%; width: 16.85%; }
+.s3 { left: 23.0%; top: 43.57%; width: 21.9%; }
+.fade { position: absolute; left: 0; right: 0; bottom: 0; height: 7%; background: linear-gradient(transparent, var(--void)); pointer-events: none; }
+.title { position: absolute; inset: 0; text-align: center; pointer-events: none; will-change: transform, opacity; }
+.title .bk { position: absolute; top: 5.25%; left: 0; right: 0; font-family: var(--display); font-weight: 400; font-size: 6.2cqw; color: var(--cream); letter-spacing: .01em; }
+.title h1 { position: absolute; top: 9.3%; left: 0; right: 0; font-size: 30.5cqw; font-weight: 500; letter-spacing: .015em; line-height: .78; }
+.title h1 span { display: block; }
+.title h1 .d { color: var(--copper); }
+.title h1 .s { color: var(--pale); }
+.author { position: absolute; top: 88.2%; left: 0; right: 0; text-align: center; font-family: var(--display); font-weight: 300; font-size: 13.4cqw; color: #fff; letter-spacing: .03em; text-shadow: .6cqw .6cqw 1.4cqw rgba(0,0,0,.55); will-change: transform, opacity; }
+.log { position: absolute; left: var(--gut); right: calc(var(--gut) + 52px); bottom: 1.2rem; }
+.log p { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; opacity: 0; font-size: 1.02rem; line-height: 1.5; color: var(--ink); will-change: opacity, transform; }
+.log p b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-height: 1; color: var(--pale); margin-bottom: .2rem; }
+.log p.on0 { opacity: 1; }
+.cta { display: inline-block; margin-top: .7rem; padding: .55rem 1rem .35rem; border: 1px solid var(--pale); background: rgba(196, 117, 90, .18); color: var(--cream); font-family: var(--display); font-size: 1.45rem; line-height: 1; text-decoration: none; letter-spacing: .03em; }
+.cta:hover { background: var(--copper); color: var(--void); }
+.end { pointer-events: none; }
+.end.live { pointer-events: auto; }
+@media (min-width: 900px) {
+  .art { width: auto; max-width: none; height: 100%; left: auto; right: 6vw; transform: none; }
+  .worlds .x { bottom: auto; right: auto; top: 2.6rem; left: 12px; }
+  .log { left: var(--gut); right: auto; width: min(30rem, 38vw); bottom: auto; top: 50%; }
+  .log p { bottom: auto; top: 0; transform: translateY(-50%); font-size: 1.3rem; }
+  .log p b { font-size: 3rem; }
+}
+
+/* ---------- three worlds, hard cuts ---------- */
+.world { padding: clamp(4rem, 10vw, 8rem) var(--gut); }
+.world h2 { font-size: clamp(3.4rem, 11vw, 7.5rem); }
+.world .tag { font-family: var(--display); font-size: 1.5rem; line-height: 1; margin: .4rem 0 0; }
+.spread { display: grid; gap: 2rem; margin-top: 2.4rem; }
+@media (min-width: 900px) { .spread { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 4rem; align-items: start; } }
+.book img { box-shadow: 8px 10px 0 rgba(0,0,0,.35); }
+.price { font-family: var(--display); font-size: 1.6rem; line-height: 1; }
+.buy { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+.btn { display: inline-block; padding: .5rem .95rem .3rem; font-family: var(--display); font-size: 1.35rem; line-height: 1; text-decoration: none; border: 1px solid currentColor; letter-spacing: .02em; }
+
+.w-space { background: var(--void-2); }
+.w-space h2 { color: var(--copper); }
+.w-space .btn.main { background: var(--copper); border-color: var(--copper); color: var(--void); }
+
+.w-fog { background: var(--fog); color: var(--fog-ink); }
+.w-fog h2 { color: #fff; letter-spacing: .01em; }
+.w-fog .tag { color: #b9bfc2; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 1.4rem; }
+.trio a { text-decoration: none; font-size: .88rem; color: #c9cfd1; }
+.trio img { margin-bottom: .4rem; box-shadow: 5px 6px 0 rgba(0,0,0,.4); }
+.w-fog .btn.main { background: #fff; color: var(--fog); border-color: #fff; }
+
+.w-dusk { background: #24406a; color: #fff; padding-top: 0; }
+.w-dusk .sky { background: linear-gradient(180deg, #f2a48a, #e98a7c); margin: 0 calc(-1 * var(--gut)); padding: clamp(4rem, 10vw, 8rem) var(--gut) 2.2rem; }
+.w-dusk h2 { color: #8a2f2c; }
+.w-dusk .tag { color: #6e2826; }
+.w-dusk .btn.main { background: #e98a7c; border-color: #e98a7c; color: #24406a; }
+.pair { display: grid; gap: 2.5rem; margin-top: 2.4rem; }
+@media (min-width: 900px) { .pair { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.pair article { display: grid; grid-template-columns: 38% 1fr; gap: 1.2rem; align-items: start; }
+.pair h3 { font-size: 2.6rem; }
+.pair p { margin: .5rem 0 0; font-size: .98rem; }
+
+.about { padding: clamp(4rem, 10vw, 7rem) var(--gut); background: var(--void); display: grid; gap: 2rem; }
+@media (min-width: 900px) { .about { grid-template-columns: 1fr 1.4fr; gap: 5rem; } }
+.about h2 { font-size: clamp(3rem, 9vw, 5.5rem); color: var(--pale); }
+.about p { margin: 0 0 1rem; max-width: 38rem; }
+.about .where { color: var(--soft); font-size: .95rem; }
+
+/* ---------- close: the stall calendar ---------- */
+.stalls { padding: clamp(4rem, 10vw, 7rem) var(--gut) 3rem; background: var(--cream); color: var(--void); }
+.stalls h2 { font-size: clamp(3rem, 10vw, 6rem); color: var(--void); }
+.stalls .lead { max-width: 36rem; margin: .8rem 0 2rem; }
+.cal { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 2px solid var(--void); }
+.cal li { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(7,4,3,.25); align-items: baseline; }
+.cal .d { font-family: var(--display); line-height: .85; }
+.cal .d b { display: block; font-size: 3.4rem; font-weight: 500; }
+.cal .d i { font-style: normal; font-size: 1.3rem; color: #8f4a35; }
+.cal h3 { font-size: 1.9rem; }
+.cal p { margin: .2rem 0 0; font-size: .95rem; color: #4a3a33; }
+.cal li.big h3 { color: #8f4a35; }
+.signed { margin-top: 2.2rem; display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+.signed .btn { background: var(--void); color: var(--cream); border-color: var(--void); }
+.find { margin-top: 2rem; font-size: .95rem; }
+.find a { margin-right: 1rem; }
+footer { background: var(--cream); color: #5b4b43; text-align: center; font-size: .85rem; padding: 1.4rem var(--gut) 2rem; border-top: 1px solid rgba(7,4,3,.2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .stage { position: relative; height: 100svh; }
+}
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Nicholas House. Not their official site.</div>
+<button class="mark" aria-expanded="false" aria-controls="worlds" aria-label="Open the contents">NH</button>
+<nav class="worlds" id="worlds" aria-label="Contents">
+  <button class="x" aria-label="Close the contents">X</button>
+  <ol>
+    <li><a href="#top"><b>Distant Suns</b><span>the light-drive</span></a></li>
+    <li><a href="#continuum"><b>Continuum</b><span>deep space</span></a></li>
+    <li><a href="#median"><b>The Median</b><span>the living and the dead</span></a></li>
+    <li><a href="#longhill"><b>Long Hill</b><span>the islands</span></a></li>
+    <li><a href="#nicholas"><b>Nicholas</b><span>about him</span></a></li>
+    <li><a href="#stalls"><b>His table</b><span>dates and signed copies</span></a></li>
+  </ol>
+</nav>
+
+<main>
+<section class="hero" id="top" aria-label="Distant Suns">
+  <div class="stage">
+    <div class="art">
+      <div class="v">
+        <div class="pl plate"><img src="img/plate.jpg" alt="" width="1187" height="1812"></div>
+        <div class="pl streaks"><img src="img/streaks.jpg" alt="" width="1187" height="1812"></div>
+        <img class="pl sun s1" src="img/sun1.webp" alt="" width="170" height="170">
+        <img class="pl sun s2" src="img/sun2.webp" alt="" width="200" height="200">
+        <img class="pl sun s3" src="img/sun3.webp" alt="" width="260" height="260">
+        <img class="pl planet" src="img/planet.webp" alt="" width="1187" height="622">
+        <img class="pl ship" src="img/ship.webp" alt="The ship Fortune over a golden planet, from the Distant Suns cover" width="670" height="475">
+        <img class="pl shiplit" src="img/ship-lit.webp" alt="" width="670" height="475" style="opacity:0">
+        <div class="author">NICHOLAS HOUSE</div>
+        <div class="fade"></div>
+      </div>
+      <div class="title">
+        <div class="bk">BOOK ONE OF CONTINUUM</div>
+        <h1><span class="d">DISTANT</span><span class="s">SUNS</span></h1>
+      </div>
+    </div>
+    <div class="log">
+      <p class="on0"><b>Coming soon</b>A science fiction adventure through the depths of space and time.</p>
+      <p><b>The maiden voyage</b>When the maiden voyage of the experimental ship Fortune goes catastrophically wrong, Dr. Olivia White and her small crew find themselves stranded in the far future.</p>
+      <p><b>The light-drive</b>With each use of its damaged light-drive, Fortune is propelled ever further into an unknowable future.</p>
+      <p><b>A distant memory</b>Earth now a distant memory, Fortune and her crew venture onwards into an increasingly hostile and bizarre universe.</p>
+      <p class="end"><b>Distant Suns</b>Book one of Continuum. Signed paperbacks are on pre-order now.<br><a class="cta" href="https://www.nicholashouseauthor.com/signedbooks/p/distant-suns-continuum-1">Pre-order signed, £12.99</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="world w-space" id="continuum">
+  <h2>Continuum</h2>
+  <p class="tag" style="color:var(--pale)">A sci-fi adventure through the depths of space and time</p>
+  <div class="spread">
+    <div class="book"><img src="img/distantsuns-cover.jpg" alt="Distant Suns, Book One of Continuum, by Nicholas House" width="800" height="1222" loading="lazy"></div>
+    <div>
+      <p class="price">Distant Suns (Continuum 1) &middot; £12.99 signed</p>
+      <p>When the maiden voyage of the experimental ship Fortune goes catastrophically wrong, Dr. Olivia White and her small crew find themselves stranded in the far future and distant reaches of the galaxy.</p>
+      <p>With each use of its damaged light-drive, Fortune is propelled ever further into an unknowable future, forcing the crew to contend with their new reality, the danger it brings and the dark heart of the drive that caused it all.</p>
+      <p>Earth now a distant memory, Fortune and her crew venture onwards into an increasingly hostile and bizarre universe. But on their journey of survival, they will come to learn the ultimate fate of humanity and uncover a threat to the entire universe.</p>
+      <div class="buy"><a class="btn main" href="https://www.nicholashouseauthor.com/signedbooks/p/distant-suns-continuum-1">Pre-order a signed copy</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="world w-fog" id="median">
+  <h2>The Median Chronicles</h2>
+  <p class="tag">Protecting the world from malevolent wraiths from beyond death</p>
+  <div class="spread">
+    <div class="book"><img src="img/chronicles-cover.jpg" alt="Chronicles of the Median by Nicholas House" width="400" height="600" loading="lazy"></div>
+    <div>
+      <p class="price">Chronicles of the Median &middot; £9.99 signed</p>
+      <p>A Median isn't something anyone chooses to be, it's just something you are. A living bridge between the worlds of the living and the dead.</p>
+      <p>Now, long forgotten forces threaten the fine balance kept by the Medians and Richard is forced to face perils that would change his life forever.</p>
+      <div class="buy">
+        <a class="btn main" href="https://www.nicholashouseauthor.com/signedbooks">Signed from Nicholas</a>
+        <a class="btn" href="https://www.amazon.co.uk/Chronicles-Median-Nicholas-House/dp/B0CMKK89ZL/">Amazon</a>
+      </div>
+      <p style="margin-top:1.6rem;font-size:.95rem;color:#b9bfc2">It collects the three novellas, each still on Amazon on its own:</p>
+      <div class="trio">
+        <a href="https://www.amazon.co.uk/Median-Nicholas-House/dp/B0BLFR2J9W"><img src="img/median-cover.jpg" alt="" width="600" height="808" loading="lazy">The Median</a>
+        <a href="https://www.amazon.co.uk/Dark-Medians-Story-Median/dp/B0CMD9QP76"><img src="img/dark-cover.jpg" alt="" width="600" height="922" loading="lazy">The Dark</a>
+        <a href="https://www.amazon.co.uk/Illumination-Medians-Median-Nicholas-House/dp/B0CMD9QCVL/"><img src="img/illumination-cover.jpg" alt="" width="600" height="922" loading="lazy">Illumination</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="world w-dusk" id="longhill">
+  <div class="sky">
+  <h2>Long Hill</h2>
+  <p class="tag">A mythological adventure, and a short collection besides</p>
+  </div>
+  <div class="pair">
+    <article>
+      <img src="img/longhill-cover.jpg" alt="Long Hill by Nicholas House" width="700" height="1069" loading="lazy">
+      <div>
+        <h3>Long Hill</h3>
+        <p>Carved into the flanks of Kilauea is an enigma not even the gods could fathom.</p>
+        <p>Striving to uncover their mystery, Dr. Mark Joyce is drawn into an adventure across the Hawaiian islands to uncover the secrets of the Pu'uloa petroglyphs.</p>
+        <div class="buy"><a class="btn main" href="https://www.nicholashouseauthor.com/signedbooks/p/long-hill">Signed, £9.99</a><a class="btn" href="https://www.amazon.co.uk/Long-Hill-Nicholas-House/dp/B0F5HRFM7H/">Amazon</a></div>
+      </div>
+    </article>
+    <article>
+      <img src="img/abridged-cover.jpg" alt="Abridged: A Short Collection of Short Stories by Nicholas House" width="600" height="916" loading="lazy">
+      <div>
+        <h3>Abridged</h3>
+        <p>Something for everyone! From Sci-Fi to Thriller. From Comedy to Paranormal. Eight stories, from Amethyst to Around the Galaxy in 80 Days. What's the worst that can happen?</p>
+        <div class="buy"><a class="btn" href="https://www.nicholashouseauthor.com/signedbooks/p/abridged-a-short-collection-of-short-stories" style="color:#fff">Signed, £3.99</a><a class="btn" href="https://www.amazon.co.uk/Abridged-Short-Collection-Stories/dp/B09PHHCK2H" style="color:#fff">Amazon</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="about" id="nicholas">
+  <h2>Nicholas</h2>
+  <div>
+    <p>Nicholas House writes primarily science fiction and paranormal thrillers, but will turn his hand to whatever genre takes his interest.</p>
+    <p>He was born in Southern England and moved to North Wales young, where he started writing early: wizards and fantasy, inspired by Jules Verne, Greek mythology and the Welsh valleys, with some poetry on the side.</p>
+    <p>The mountains sent him outdoors and into Geoscience at university, and the travel that came with it gave him new cultures and landscapes to write from. Now in Oxfordshire with his wife and son, he has used his geology and his interest in space to write for an astronomy magazine and make scripted videos for his YouTube channel.</p>
+    <p class="where"><a href="https://www.youtube.com/@nicholashouseauthor">YouTube</a> &middot; <a href="https://www.instagram.com/nicholashouseauthor/">Instagram</a> &middot; <a href="https://www.facebook.com/nicholashouseauthor">Facebook</a> &middot; <a href="https://www.nicholashouseauthor.com/contact">Contact</a></p>
+  </div>
+</section>
+
+<section class="stalls" id="stalls">
+  <h2>Find his table</h2>
+  <p class="lead">Nicholas sells signed copies in person across Oxfordshire. These are the next dates on his events page.</p>
+  <ol class="cal">
+    <li><div class="d"><b>31</b><i>Oct, Sat</i></div><div><h3>Witney Craft &amp; Gift Market</h3><p>10:00 to 16:00, a Mynt Image Gift &amp; Craft Fair</p></div></li>
+    <li><div class="d"><b>7</b><i>Nov, Sat</i></div><div><h3>Banbury Comic Con</h3><p>11:00 to 16:00, Spiceball Leisure Centre</p></div></li>
+    <li><div class="d"><b>14</b><i>Nov, Sat</i></div><div><h3>Witney Craft &amp; Gift Market</h3><p>10:00 to 16:00, a Mynt Image Gift &amp; Craft Fair</p></div></li>
+    <li class="big"><div class="d"><b>22</b><i>Nov, Sun</i></div><div><h3>Oxford Indie Book Fair, table N24</h3><p>Oxford Examination Schools</p></div></li>
+  </ol>
+  <div class="signed"><a class="btn" href="https://www.nicholashouseauthor.com/signedbooks">Can't make it? Order signed books</a></div>
+</section>
+</main>
+<footer>A mockup made by Sparsh Saini for Nicholas House. Not affiliated, not live.</footer>
+
+<script>
+(() => {
+  // the NH mark
+  const mark = document.querySelector('.mark'), worlds = document.getElementById('worlds');
+  const setOpen = o => { worlds.classList.toggle('open', o); mark.setAttribute('aria-expanded', o); if (o) worlds.querySelector('a').focus(); };
+  mark.addEventListener('click', () => setOpen(true));
+  worlds.querySelector('.x').addEventListener('click', () => { setOpen(false); mark.focus(); });
+  worlds.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  const strip = document.querySelector('.strip');
+
+  // the light-drive: three hops, each one moves every plane of the cover to a new place
+  const hero = document.querySelector('.hero');
+  const q = s => hero.querySelector(s);
+  const lit = q('.shiplit');
+  const el = { plate: q('.plate'), streaks: q('.streaks'), s1: q('.s1'), s2: q('.s2'), s3: q('.s3'), planet: q('.planet'), ship: q('.ship'), author: q('.author'), title: q('.title') };
+  const lines = [...hero.querySelectorAll('.log p')];
+  // keyframes per hop (0 = the cover as printed), values: x%, y%, scale (of the plane's own box), opacity
+  const K = {
+    plate:  [[0,0,1,1],[0,-3,1.06,1],[0,-6,1.12,1],[0,-8,1.18,1]],
+    planet: [[0,0,1,1],[0,32,.92,1],[0,95,.8,1],[0,140,.7,0]],
+    author: [[0,0,1,1],[0,30,1,0],[0,60,1,0],[0,60,1,0]],
+    ship:   [[0,0,1,1],[-6,-62,.62,1],[10,-108,.4,1],[0,-34,.78,1]],
+    s1:     [[0,0,1,1],[440,60,1.9,1],[300,330,.6,1],[160,95,.45,1]],
+    s2:     [[0,0,1,1],[-150,130,.7,1],[60,-20,1.6,1],[80,62,.4,1]],
+    s3:     [[0,0,1,1],[180,-120,.55,1],[-80,-30,.85,1],[130,-36,.32,1]],
+    title:  [[0,0,1,1],[0,-14,1,0],[0,-14,1,0],[0,0,1,0]]
+  };
+  const hops = [.2, .45, .7], W = .09;
+  const ss = t => t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t);
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const lerp = (a, b, t) => a + (b - a) * t;
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    mark.classList.toggle('low', scrollY > strip.offsetHeight);
+    let p;
+    if (still.matches) p = 1;
+    else { const r = hero.getBoundingClientRect(); p = Math.min(1, Math.max(0, -r.top / (hero.offsetHeight - innerHeight))); }
+    const hs = hops.map(c => ss((p - (c - W / 2)) / W));
+    const st = hs[0] + hs[1] + hs[2];
+    const k = Math.min(2, Math.floor(st)), t = st - k;
+    const drift = p * 2; // slow drift between hops, so the scroll never goes dead
+    let flash = 0; hs.forEach(h => { flash = Math.max(flash, Math.sin(Math.PI * h)); });
+    for (const n in K) {
+      const a = K[n][k], b = K[n][k + 1] || K[n][k];
+      const x = lerp(a[0], b[0], t), y = lerp(a[1], b[1], t) - (n === 'ship' ? drift * 2 : n === 'plate' ? drift * .6 : 0), s = lerp(a[2], b[2], t), o = lerp(a[3], b[3], t);
+      let sy = s;
+      if (n === 'ship') sy = s * (1 + flash * .9);
+      const e = el[n];
+      e.style.transform = `translate(${x}%, ${y}%) scale(${s}, ${sy})`;
+      e.style.opacity = n === 'ship' ? o * (1 - flash * .55) : o;
+    }
+    lit.style.transform = el.ship.style.transform; lit.style.opacity = (Math.min(1, st) * (1 - flash * .55)).toFixed(3);
+    el.streaks.style.opacity = (flash * .85).toFixed(3);
+    el.streaks.style.transform = `scale(${1 + flash * .12})`;
+    // the end: the title comes back over three distant suns
+    const lock = ss((p - .86) / .08);
+    if (lock > 0) { el.title.style.opacity = lock; el.title.style.transform = `translateY(${(1 - lock) * 6}%)`; }
+    // the log line for this stretch of the voyage
+    const idx = p >= .86 ? 4 : Math.round(Math.min(st, 3));
+    const fadeIn = p >= .86 ? lock : 1 - flash;
+    lines.forEach((l, i) => { l.style.opacity = i === idx ? Math.max(.05, fadeIn).toFixed(3) : 0; l.classList.toggle('live', i === idx); });
+  }
+  const go = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', go, { passive: true });
+  addEventListener('resize', go);
+  still.addEventListener('change', go);
+  frame();
+})();
+</script>
+</body>
+</html>
